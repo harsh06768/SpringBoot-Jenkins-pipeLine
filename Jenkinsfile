@@ -2,8 +2,9 @@ pipeline {
     agent any
     
     environment {
-        imagename = "springboot-jenkins-pipeline-docker.jar"
-        //registryCredential = 'kevalnagda'
+        
+        imagename = "harsh8848/springboot-jenkins-pipeline-docker.jar"
+        registryCredential = 'harsh8848'
         dockerImage = ''
     }
    
@@ -32,5 +33,17 @@ pipeline {
                 }
             }
         }
+        
+        
+        stage('Deploy Image') {
+             steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push("$BUILD_NUMBER")
+                    dockerImage.push('latest')
+                     }
+                 }
+             }
+         }
     }
 }
