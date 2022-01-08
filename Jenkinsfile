@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                sh 'compile'
+                sh 'mvn compile'
                 echo 'Compiling Project....'
             }
         }
         stage('Test') {
             steps {
-                sh 'test'
+                sh 'mvn test'
                 echo 'Testing.....'
             }
         }
