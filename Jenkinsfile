@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    
+    environment {
+        imagename = "harsh8848/SpringBoot-Jenkins-pipeLine-docker"
+        //registryCredential = 'kevalnagda'
+        dockerImage = ''
+    }
    
 
     stages {
@@ -19,9 +25,11 @@ pipeline {
                 echo 'Tested Successfully'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+       stage('Building image') {
+            steps{
+                script {
+                     dockerImage = docker.build imagename
+                }
             }
         }
     }
