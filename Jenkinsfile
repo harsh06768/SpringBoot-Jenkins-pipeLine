@@ -5,16 +5,16 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               // sh 'mvn compile'
-                //sh 'mvn -Dmaven.test.failure.ignore=true install' 
-                bat 'mvn -Dmaven.test.failure.ignore=true clean' 
+              
+               // bat 'mvn -Dmaven.test.failure.ignore=true clean' 
+                bat 'mvn compile' 
                 echo 'Compiling Project....'
                 echo 'Compiled Successfully'
             }
         }
         stage('Test') {
             steps {
-              //  sh 'mvn test'
+                bat 'mvn test'
                 echo 'Testing.....'
                 echo 'Tested Successfully'
             }
