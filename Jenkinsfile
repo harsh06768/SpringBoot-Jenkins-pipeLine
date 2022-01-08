@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        imagename = "harsh8848/SpringBoot-Jenkins-pipeLine-docker"
+        imagename = "springBoot-jenkins-pipeline-docker"
         //registryCredential = 'kevalnagda'
         dockerImage = ''
     }
