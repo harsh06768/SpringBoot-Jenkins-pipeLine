@@ -7,6 +7,7 @@ pipeline {
             steps {
                // sh 'mvn compile'
                 //sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                bat 'mvn -Dmaven.test.failure.ignore=true clean' 
                 echo 'Compiling Project....'
                 echo 'Compiled Successfully'
             }
