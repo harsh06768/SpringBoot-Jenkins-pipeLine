@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Compile') {
+        stage('Build') {
             steps {
                // sh 'mvn compile'
-                sh 'mvn clean' 
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
                 echo 'Compiling Project....'
                 echo 'Compiled Successfully'
             }
