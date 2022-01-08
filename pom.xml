@@ -51,6 +51,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>SpringBoot-Jenkins-pipeLine-docker</finalName>
 	</build>
 
 </project>
