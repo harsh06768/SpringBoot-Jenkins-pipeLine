@@ -5,6 +5,7 @@ pipeline {
         stage('Compile') {
             steps {
                // sh 'mvn compile'
+                sh 'mvn clean' 
                 echo 'Compiling Project....'
                 echo 'Compiled Successfully'
             }
