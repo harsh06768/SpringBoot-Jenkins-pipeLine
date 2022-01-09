@@ -3,9 +3,10 @@ pipeline {
     
     environment {
         
-        imagename = "harsh8848/springboot-jenkins-pipeline-docker"
-        registryCredential = 'harsh8848'
         dockerImage = ''
+        imagename = "harsh8848/springboot-jenkins-pipeline-docker"
+        registryCredential = '50bdcf62-5759-4334-b661-a7fd2b19887b'
+       
     }
    
 
@@ -41,7 +42,7 @@ pipeline {
        stage('Building image') {
             steps{
                 script {
-                     dockerImage = docker build . -t imagename 
+                     dockerImage = docker.build imagename 
                 }
             }
         }
