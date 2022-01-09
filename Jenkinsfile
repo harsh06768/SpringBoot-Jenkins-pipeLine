@@ -26,6 +26,18 @@ pipeline {
                 echo 'Tested Successfully'
             }
         }
+        
+          stage('Packaging') {
+            steps {
+                bat 'mvn package'
+                echo 'Packaging.....'
+                echo 'JAR file  Successfully created'
+            }
+        }
+        
+        
+        
+        
        stage('Building image') {
             steps{
                 script {
