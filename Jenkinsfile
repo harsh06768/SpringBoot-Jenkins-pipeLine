@@ -2,8 +2,9 @@ pipeline {
     agent any
     
     environment {
-        imagename = "springBoot-jenkins-pipeline-docker"
-        //registryCredential = 'kevalnagda'
+        
+        imagename = "harsh8848/springboot-jenkins-pipeline-docker"
+        registryCredential = 'harsh8848'
         dockerImage = ''
     }
    
@@ -25,12 +26,36 @@ pipeline {
                 echo 'Tested Successfully'
             }
         }
+        
+//           stage('Packaging') {
+//             steps {
+//                 bat 'mvn package'
+//                 echo 'Packaging.....'
+//                 echo 'JAR file  Successfully created'
+//             }
+//         }
+        
+        
+       // docker build . -t app-springboot
+        
        stage('Building image') {
             steps{
                 script {
-                     dockerImage = docker.build imagename
+                     dockerImage = docker build . -t imagename 
                 }
             }
         }
+        
+        
+        stage('Deploy Image') {
+             steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push("$BUILD_NUMBER")
+                    dockerImage.push('latest')
+                     }
+                 }
+             }
+         }
     }
 }
