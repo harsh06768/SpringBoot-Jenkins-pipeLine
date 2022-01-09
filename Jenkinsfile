@@ -36,12 +36,12 @@ pipeline {
         }
         
         
-        
+       // docker build . -t app-springboot
         
        stage('Building image') {
             steps{
                 script {
-                     dockerImage = docker.build imagename + ":$BUILD_NUMBER"
+                     dockerImage = docker build . -t imagename 
                 }
             }
         }
