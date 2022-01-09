@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         
-        imagename = "harsh8848/springboot-jenkins-pipeline-docker.jar"
+        imagename = "harsh8848/springboot-jenkins-pipeline-docker"
         registryCredential = 'harsh8848'
         dockerImage = ''
     }
