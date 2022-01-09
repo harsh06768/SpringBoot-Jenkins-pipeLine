@@ -27,13 +27,13 @@ pipeline {
             }
         }
         
-          stage('Packaging') {
-            steps {
-                bat 'mvn package'
-                echo 'Packaging.....'
-                echo 'JAR file  Successfully created'
-            }
-        }
+//           stage('Packaging') {
+//             steps {
+//                 bat 'mvn package'
+//                 echo 'Packaging.....'
+//                 echo 'JAR file  Successfully created'
+//             }
+//         }
         
         
        // docker build . -t app-springboot
