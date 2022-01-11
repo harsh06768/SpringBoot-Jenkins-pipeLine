@@ -11,8 +11,7 @@ services:
          SPRING_DATASOURCE_USERNAME: "root"
          SPRING_DATASOURCE_PASSWORD: "root"
       build:
-         #context: "./"
-         context: "/targets"
+         context: "./"
          dockerfile: "Dockerfile"
       depends_on:
          - mysql-standalone
