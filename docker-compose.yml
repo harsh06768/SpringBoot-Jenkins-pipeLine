@@ -4,7 +4,7 @@ services:
       image: backend-image
       build: .
       ports:
-         - "8080:8080"
+         - "8181:8181"
       restart: unless-stopped
       environment:
          SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/junit_employee?useSSL=false
