@@ -66,7 +66,8 @@ pipeline {
             stage('Run docker compose ') {
              steps{
                 script {
-                    bat "docker-compose up"
+                    //bat "docker-compose up"
+                     bat "docker-compose -f docker-compose.yml up"
                     //docker.withRegistry( '', registryCredential ) {
                     //dockerImage.push("$BUILD_NUMBER")
                    // dockerImage.push('latest')
