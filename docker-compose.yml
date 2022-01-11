@@ -1,0 +1,26 @@
+version: '3'
+services:
+   backend-image:
+      image: backend-image
+      build: .
+      ports:
+         - "8080:8080"
+      restart: unless-stopped
+      environment:
+         SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/junit_employee?useSSL=false
+         SPRING_DATASOURCE_USERNAME: "root"
+         SPRING_DATASOURCE_PASSWORD: "root"
+      build:
+         context: "./"
+         dockerfile: "Dockerfile"
+      depends_on:
+         - mysql-standalone
+   mysql-standalone:
+      image: mysql:5.6
+      restart: always
+      ports:
+         - "3307:3306"
+      environment:
+         - MYSQL_ROOT_PASSWORD=root
+         - MYSQL_PASSWORD=root
+         - MYSQL_DATABASE=junit_employee
